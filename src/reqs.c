@@ -1018,6 +1018,10 @@ retry:
                 return 0;
         }
 
+        if (response_line[7] == '1') {
+                response_line[7] = '0';
+        }
+
         /* Send the saved response line first */
         ret = write_message (connptr->client_fd, "%s\r\n", response_line);
         safefree (response_line);
